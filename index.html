@@ -5,9 +5,9 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Bootstrap -->
-    <link href="../assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="../assets/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="../assets/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+    <link href="js/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="js/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="js/font-awesome/css/font-awesome.min.css" rel="stylesheet">
   </head>
 
   <body>
@@ -28,24 +28,6 @@
       </div>
 
       <div class="container">
-<section id="noninteractive" contextmenu="imagemenu">
- 
-  <img src="html5.png" alt="HTML5" id="menudemo">
- 
-    <menu type="context" id="imagemenu">
-      <menuitem label="rotate" onclick="rotate()"
-                icon="arrow_rotate_clockwise.png">
-      </menuitem>
-      <menuitem label="resize" onclick="resize()"
-                icon="image-resize.png">
-      </menuitem>
-      <menu label="share">
-        <menuitem label="twitter" onclick="alert('not yet')"></menuitem>
-        <menuitem label="facebook" onclick="alert('not yet')"></menuitem>
-      </menu>
-    </menu>
- 
-</section>
         <div class="row col-md-9">
           <p>
             <ul id="tasks" class="list-group">
@@ -55,23 +37,25 @@
       </div>
     </main>
 
-    <script src="../assets/jquery-2.0.3.min.js" type="text/javascript"></script>
-    <script src="../assets/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../assets/udata.js"></script>
-    <script src="randomUUID.js" type="text/javascript"></script>
-    <script src="../assets/hmac.js" type="text/javascript"></script>
+    <script src="http://localhost:3000/static/client.js"></script>
+
+    <script src="js/jquery-2.0.3.min.js" type="text/javascript"></script>
+    <script src="js/bootstrap/js/bootstrap.min.js"></script>
+    <script src="js/randomUUID.js" type="text/javascript"></script>
+    <script src="js/hmac.js" type="text/javascript"></script>
 <script type="text/javascript;version=1.8">
 $(document).ready(function() {
 
   /*
    * Define the connection to the remote udatahub
    */
-  var namespace = document.location.search || "com.example.todo",
+  var apiurl = "http://localhost:3000/",
+      namespace = document.location.search || "com.example.todo",
       apikey = "I'm lame if I use this key in production";
 
   var api = udata.API();
 
-  var connection = api.create_connection("/", namespace,
+  var connection = api.create_connection(apiurl, namespace,
       /*
        * The request handler is responsible for the transport
        * Independent of the API, because different frameworks provide

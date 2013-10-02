@@ -1,8 +1,8 @@
 {
     "version": "0.1",
-    "name": "µCloud",
-    "description": "Your Apps using your Storage",
-    "launch_path": "/examples/todo.html",
+    "name": "µData Todo",
+    "description": "A simple todo list using the udata API",
+    "launch_path": "index.html",
     "icons": {
     },
     "developer": {
